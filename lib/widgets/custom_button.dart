@@ -1,0 +1,24 @@
+
+
+import 'package:flutter/material.dart';
+import 'package:note_app/constants.dart';
+
+class CustomButton extends StatelessWidget {
+  final String text;
+  const CustomButton({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: kprimaryColor,
+          borderRadius: BorderRadius.circular(8)
+        ),
+      child: Text(text,style: TextStyle(color: Colors.black),),
+    ),);
+  }
+}
