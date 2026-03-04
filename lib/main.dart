@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_app/constants.dart';
 import 'package:note_app/views/edit_note_view.dart';
 import 'package:note_app/views/note_view.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter;
+  await Hive.openBox(kNotesBox);
   runApp(NoteApp());
 }
 
