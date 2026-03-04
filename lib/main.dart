@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:note_app/views/edit_note_view.dart';
 import 'package:note_app/views/note_view.dart';
 
 void main() {
@@ -12,9 +13,13 @@ class NoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes:{
+        NotesView.id:(context)=>NotesView(),
+        EditNoteView.id:(context)=>EditNoteView(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark, fontFamily:'Poppins'),
-      home: NotesView(),
+      initialRoute: NotesView.id,
     );
   }
 }
