@@ -3,12 +3,13 @@ import 'package:note_app/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  const CustomButton({required this.text});
+  final void Function() onTap;
+  const CustomButton({required this.text,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap:onTap,
       child: Container(
         alignment: AlignmentGeometry.center,
         width: double.infinity,
