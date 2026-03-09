@@ -4,12 +4,18 @@ import 'package:note_app/constants.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final void Function() onTap;
-  const CustomButton({required this.text,required this.onTap});
+  bool isLoading;
+  CustomButton({
+    required this.text,
+    required this.onTap,
+    this.isLoading = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap,
+      onTap: onTap,
       child: Container(
         alignment: AlignmentGeometry.center,
         width: double.infinity,
@@ -19,7 +25,13 @@ class CustomButton extends StatelessWidget {
           color: kprimaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Text(text, style: TextStyle(color: Colors.black, fontSize: 18)),
+        child: isLoading == true
+            ? SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(color: Colors.black),
+              )
+            : Text(text, style: TextStyle(color: Colors.black, fontSize: 18)),
       ),
     );
   }
