@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  final NoteModel note;
+ 
+  const NoteItem({super.key, required this.note});
+
+ 
 
   @override
   Widget build(BuildContext context) {
+    final DateTime date =  note.date;
+
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(EditNoteView.id);
@@ -14,7 +21,7 @@ class NoteItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.only(left: 8, bottom: 24, top: 24),
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          color:  Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -22,7 +29,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                "Flutter Tips",
+                 note.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
@@ -30,7 +37,7 @@ class NoteItem extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: Text(
-                    "Build your career with Mohamed Elsayed",
+                     note.subTitle,
                     style: TextStyle(
                       color: Colors.black.withValues(alpha: 0.5),
                       fontSize: 20,
@@ -49,7 +56,7 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16, top: 24),
               child: Text(
-                'May 21,2026',
+                '${date.month}/${date.day}/${date.year}',
                 style: TextStyle(
                   color: Colors.black.withValues(alpha: 0.5),
                   fontSize: 14,
