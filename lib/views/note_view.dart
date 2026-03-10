@@ -3,7 +3,7 @@ import 'package:note_app/widgets/add_note_bottom_sheet.dart';
 import 'package:note_app/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
-  static const String id='NotesView';
+  static const String id = 'NotesView';
   const NotesView({super.key});
 
   @override
@@ -14,8 +14,9 @@ class NotesView extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16)
+              borderRadius: BorderRadius.circular(16),
             ),
             context: context,
             builder: (context) {
