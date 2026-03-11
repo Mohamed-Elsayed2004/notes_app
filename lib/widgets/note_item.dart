@@ -6,14 +6,12 @@ import 'package:note_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   final NoteModel note;
- 
-  const NoteItem({super.key, required this.note});
 
- 
+  const NoteItem({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
-    final DateTime date =  note.date;
+    final DateTime date = note.date;
 
     return GestureDetector(
       onTap: () {
@@ -23,7 +21,7 @@ class NoteItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.only(left: 8, bottom: 24, top: 24),
         decoration: BoxDecoration(
-          color:  Color(note.color),
+          color: Color(note.color!),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -31,7 +29,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                 note.title,
+                note.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
@@ -39,7 +37,7 @@ class NoteItem extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: Text(
-                     note.subTitle,
+                    note.subTitle,
                     style: TextStyle(
                       color: Colors.black.withValues(alpha: 0.5),
                       fontSize: 20,
